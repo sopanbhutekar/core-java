@@ -7,7 +7,7 @@ import java.lang.Math;
 import java.lang.Override;
 import java.lang.String;
 
-public class MyString implements CharSequence,Comparable<MyString>{
+public final class MyString implements CharSequence,Comparable<MyString>{
 
 	private char value [];
 	private int hash;
@@ -134,4 +134,13 @@ public class MyString implements CharSequence,Comparable<MyString>{
 		return this.value;
 	}
 	
+	public static MyString valueOf(int i)
+	{
+		return new MyString(Integer.toString(i));
+	}
+		
+	public MyString intern(){
+		
+		return new MyString(new String(this.value).intern());
+	}
 }
